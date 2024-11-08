@@ -9,12 +9,12 @@ export default defineNuxtConfig({
             preprocessorOptions: {
                 scss: {
                     api: 'modern-compiler',
-                    additionalData: '@use "~/assets/styles/index.scss" as *;',
+                    additionalData: '@use "~/assets/styles/_variables.scss" as *;',
                 },
             },
         },
     },
-    // css: ['~/assets/styles/index.scss'],
+    css: ['~/assets/styles/index.scss'],
     fonts: {
         defaults: {
             weights: [400],

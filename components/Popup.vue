@@ -15,9 +15,14 @@
 
 <style lang="scss">
     .popup-wrapper {
-        position: relative;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         width: 100vw;
         height: 100vh;
+        overflow: hidden;
         &::before {
             content: '';
             background-color: $color-black;
@@ -45,7 +50,7 @@
         padding-top: 32px;
         &-container {
             max-width: 800px;
-            width: 100%;
+            width: calc(100% - 40px);
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -68,6 +73,10 @@
                 height: 2rem;
                 width: 2rem;
             }
+        }
+        @media only screen and (max-width: $md) {
+            margin: 0 5px;
+            width: calc(100% - 10px);
         }
     }
 </style>

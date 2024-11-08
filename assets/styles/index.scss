@@ -1,5 +1,5 @@
-@use '_normalize' as *;
-@use '_variables' as *;
+@use '_normalize';
+// @use '_variables' as *;
 
 html {
     font-family: 'Onest', sans-serif;
@@ -8,7 +8,11 @@ html {
 .wrapper {
     min-height: 100vh;
     min-width: 100vw;
-    background-color: $color-primary;
+    position: relative;
+}
+
+.title {
+    font-family: 'Unbounded', sans-serif;
 }
 
 :root {
