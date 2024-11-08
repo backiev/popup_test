@@ -1,5 +1,26 @@
-@import '_variables';
+@use '_normalize' as *;
+@use '_variables' as *;
 
 html {
-	font-family: 'ArtifaktElement', sans-serif
+    font-family: 'Onest', sans-serif;
+}
+
+.wrapper {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: $color-primary;
+}
+
+:root {
+    font-size: 16px;
+
+    @media only screen and (min-width: $md) and (max-width: $lg) {
+        font-size: 14px;
+    }
+    @media only screen and (min-width: $sm) and (max-width: $md) {
+        font-size: 14px;
+    }
+    @media only screen and (max-width: $sm) {
+        font-size: 14px;
+    }
 }
