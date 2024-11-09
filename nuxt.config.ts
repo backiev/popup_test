@@ -14,6 +14,11 @@ export default defineNuxtConfig({
             },
         },
     },
+    runtimeConfig: {
+        public: {
+            api_news: process.env.API_NEWS,
+        },
+    },
     css: ['~/assets/styles/index.scss'],
     fonts: {
         defaults: {

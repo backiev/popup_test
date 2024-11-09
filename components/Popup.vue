@@ -1,4 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+    const props = defineProps<{
+        status: string
+    }>()
+</script>
 
 <template>
     <div class="popup-wrapper">
@@ -7,7 +11,8 @@
                 <img src="~/assets/images/white-cross.svg" alt="Кнопка закрытия" />
             </div>
             <div class="popup-container">
-                <slot />
+                <slot v-if="status === 'success'" />
+                <div v-if="status === 'error'">404 not found</div>
             </div>
         </div>
     </div>

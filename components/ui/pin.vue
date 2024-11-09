@@ -2,15 +2,6 @@
     const props = defineProps<{
         color: string
     }>()
-    // interface IColor {
-    //     red: string
-    //     blue: string
-    // }
-    // const colors: IColor = {
-    //     red: '#ca2250',
-    //     blue: '#5b4481',
-    // }
-    // console.log(colors['red'])
 </script>
 
 <template>

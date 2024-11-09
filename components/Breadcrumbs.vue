@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    import type {IBreadCrumbs} from '~/types'
+    import type {IBreadCrumbs} from '../types'
     const props = defineProps<{
         breadCrumbs: IBreadCrumbs[]
     }>()

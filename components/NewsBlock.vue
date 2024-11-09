@@ -27,7 +27,7 @@
         mask-image: url('~/assets/images/bg-news.png');
         mask-position: right;
         mask-size: 100% 100%;
-        background-color: #f3f3f3;
+        background-color: $color-light;
         height: 100%;
         max-height: 10rem;
         gap: 20px;
@@ -35,7 +35,7 @@
         z-index: 0;
         &-wrapper {
             position: relative;
-            color: black;
+            color: $color-black;
             text-decoration: none;
             width: 100%;
         }
@@ -94,7 +94,7 @@
             max-height: 20rem;
             gap: 5px;
             mask-image: none;
-            background-color: #f3f3f3;
+            background-color: $color-light;
             border-radius: 1rem;
             &-img {
                 position: relative;

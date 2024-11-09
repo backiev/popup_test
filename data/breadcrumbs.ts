@@ -10,9 +10,4 @@ export const breadCrumbs: IBreadCrumbs[] = [
         title: 'Новости',
         active: false,
     },
-    {
-        id: 2,
-        title: 'Название новости',
-        active: true,
-    },
 ]

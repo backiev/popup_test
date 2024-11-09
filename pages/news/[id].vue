@@ -1,22 +1,46 @@
 <script lang="ts" setup>
-    import {breadCrumbs} from '~/data/breadcrumbs'
+    import type {RuntimeConfig} from 'nuxt/schema'
+    import type {INewsResponse, IBreadCrumbs, INewsNext, INewsResult} from '~/types'
     definePageMeta({
         layout: 'default',
     })
     const route = useRoute()
+    const config: RuntimeConfig = useRuntimeConfig()
+    const {data, status, error, refresh} = await useFetch<INewsResponse>(`${config.public.api_news}/${route.params.id}`)
+    const news = data.value?.data.result
+    const nextNews = news?.next
+    const newsPins = news?.tags
+    const breadCrumbs: IBreadCrumbs[] = [
+        {
+            id: 0,
+            title: 'Главная',
+            active: false,
+        },
+        {
+            id: 1,
+            title: 'Новости',
+            active: false,
+        },
+        {
+            id: 2,
+            title: news?.title ? news.title : '',
+            active: true,
+        },
+    ]
 </script>
 
 <template>
-    <Popup>
+    <Popup :status="status">
         <div class="news">
             <Breadcrumbs :breadCrumbs="breadCrumbs" />
             <div class="news-pins">
-                <UiPin color="red">акции</UiPin>
-                <UiPin color="blue">акция</UiPin>
+                <UiPin v-for="pin in newsPins" :color="pin.values[0].color">
+                    {{ pin.values[0].name }}
+                </UiPin>
             </div>
-            <div class="title news-title">Квартира недели в Квартале «Медовый»</div>
+            <div class="title news-title">{{ news?.title }}</div>
         </div>
-        <div class="news-next">
+        <div class="news-next" v-if="nextNews">
             <div class="title">Следующая статья</div>
             <NewsBlock />
         </div>
