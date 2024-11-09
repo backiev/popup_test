@@ -18,12 +18,16 @@
         display: flex;
         flex-direction: row;
         gap: 30px;
+        max-width: calc(100% - 3rem);
+        overflow: hidden;
         &-item {
             font-size: 1rem;
             text-transform: uppercase;
             position: relative;
             display: flex;
             align-items: center;
+            word-wrap: none;
+            flex-shrink: 0;
             &:not(:first-child)::before {
                 content: '';
                 width: 0.3rem;

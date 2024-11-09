@@ -12,6 +12,7 @@ export interface INewsTags {
             name: string
             code: string
             color: string
+            src: string
         },
     ]
 }

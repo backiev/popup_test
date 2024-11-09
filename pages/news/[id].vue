@@ -34,7 +34,10 @@
         <div class="news">
             <Breadcrumbs :breadCrumbs="breadCrumbs" />
             <div class="news-pins">
-                <UiPin v-for="pin in newsPins" :color="pin.values[0].color">
+                <UiPin
+                    v-for="pin in newsPins"
+                    :color="pin.values[0].color"
+                    :icon="pin.values[0].src ? pin.values[0].src : ''">
                     {{ pin.values[0].name }}
                 </UiPin>
             </div>
@@ -70,7 +73,7 @@
             gap: 10px;
             .title {
                 font-size: 1.5rem;
-                font-weight: 500;
+                font-weight: bolder;
             }
         }
     }
