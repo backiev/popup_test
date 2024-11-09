@@ -1,6 +1,6 @@
 <script lang="ts" setup>
     import type {RuntimeConfig} from 'nuxt/schema'
-    import type {INewsResponse, IBreadCrumbs, INewsNext, INewsResult} from '~/types'
+    import type {INewsResponse, IBreadCrumbs} from '~/types'
     definePageMeta({
         layout: 'default',
     })
@@ -10,6 +10,8 @@
     const news = data.value?.data.result
     const nextNews = news?.next
     const newsPins = news?.tags
+    const isVisible = ref(false)
+    let isClosing = false
     const breadCrumbs: IBreadCrumbs[] = [
         {
             id: 0,
@@ -27,10 +29,25 @@
             active: true,
         },
     ]
+
+    const handleClosePopup = () => {
+        isVisible.value = false
+        isClosing = true
+    }
+    const handleTransitionEnd = () => {
+        if (isClosing) {
+            navigateTo('/')
+            isClosing = false
+        }
+    }
+
+    onMounted(() => {
+        isVisible.value = true
+    })
 </script>
 
 <template>
-    <Popup :status="status">
+    <Popup :status="status" :visible="isVisible" @close-popup="handleClosePopup" @end-transition="handleTransitionEnd">
         <div class="news">
             <Breadcrumbs :breadCrumbs="breadCrumbs" />
             <div class="news-pins">

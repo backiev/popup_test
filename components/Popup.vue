@@ -1,13 +1,24 @@
 <script lang="ts" setup>
     const props = defineProps<{
         status: string
+        visible: boolean
     }>()
+
+    const handleClick = () => {
+        emit('closePopup')
+    }
+
+    const handleTransitionEnd = () => {
+        emit('endTransition')
+    }
+
+    const emit = defineEmits(['closePopup', 'endTransition'])
 </script>
 
 <template>
-    <div class="popup-wrapper">
+    <div class="popup-wrapper" :class="{'is-visible': visible}" @transitionend="handleTransitionEnd">
         <div class="popup">
-            <div class="popup-close">
+            <div class="popup-close" @click="handleClick">
                 <img src="~/assets/images/white-cross.svg" alt="Кнопка закрытия" />
             </div>
             <div class="popup-container">
@@ -28,6 +39,8 @@
         width: 100vw;
         height: 100vh;
         overflow: hidden;
+        opacity: 0;
+        transition: opacity $default-time ease-in-out;
         &::before {
             content: '';
             background-color: $color-black;
@@ -38,6 +51,12 @@
             top: 0;
             left: 0;
             z-index: 5;
+        }
+        &.is-visible {
+            opacity: 1;
+            & > .popup {
+                transform: translateY(0);
+            }
         }
     }
 
@@ -53,6 +72,8 @@
         z-index: 10;
         overflow: hidden;
         padding-top: 32px;
+        transform: translateY(60px);
+        transition: transform $default-time ease-in-out;
         &-container {
             max-width: 800px;
             width: calc(100% - 40px);
@@ -79,6 +100,7 @@
                 width: 2rem;
             }
         }
+
         @media only screen and (max-width: $md) {
             margin: 0 5px;
             width: calc(100% - 10px);
