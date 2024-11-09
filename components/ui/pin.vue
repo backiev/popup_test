@@ -3,7 +3,6 @@
         color: string
         icon: string
     }>()
-    console.log(props.icon)
 </script>
 
 <template>
