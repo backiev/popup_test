@@ -19,6 +19,8 @@
         align-items: center;
         border-radius: 1rem;
         padding: 0.1em 0.6em;
+        border: 1px solid $color-black;
+        color: $color-black;
         &.blue {
             border: 1px solid $color-pin-blue;
             color: $color-pin-blue;

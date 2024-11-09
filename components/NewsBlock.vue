@@ -1,23 +1,31 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+    import type {INewsResponse, IBreadCrumbs, INewsNext, INewsResult} from '~/types'
+
+    const props = defineProps<{
+        nextNews: INewsNext
+    }>()
+    const newsPins = props.nextNews?.tags
+</script>
 
 <template>
-    <a href="#" class="block-wrapper">
+    <NuxtLink :to="{name: 'news-id', params: {id: nextNews.code}}" class="block-wrapper">
         <div class="block">
             <div class="block-img">
-                <img class="block-img-bg" src="~/assets/images/poster.webp" alt="123" />
+                <img class="block-img-bg" :src="nextNews.picture" alt="picture next nuws" />
             </div>
             <div class="block-content">
-                <div class="block-title title">Квартира недели в Квартале «Медовый»</div>
+                <div class="block-title title">{{ nextNews.title }}</div>
                 <div class="block-pins">
-                    <UiPin color="red">новости</UiPin>
-                    <UiPin color="blue">стройка</UiPin>
+                    <UiPin v-for="pin in newsPins" :color="pin.values[0].color">
+                        {{ pin.values[0].name }}
+                    </UiPin>
                 </div>
             </div>
         </div>
         <div class="block-arrow">
             <img src="~/assets/images/pink-arrow-r.svg" alt="" />
         </div>
-    </a>
+    </NuxtLink>
 </template>
 
 <style lang="scss" scoped>

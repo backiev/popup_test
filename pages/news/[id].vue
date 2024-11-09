@@ -42,7 +42,7 @@
         </div>
         <div class="news-next" v-if="nextNews">
             <div class="title">Следующая статья</div>
-            <NewsBlock />
+            <NewsBlock :next-news="nextNews" />
         </div>
     </Popup>
 </template>
