@@ -36,7 +36,7 @@
     }
     const handleTransitionEnd = () => {
         if (isClosing) {
-            navigateTo('/')
+            navigateTo('/news/')
             isClosing = false
         }
     }
