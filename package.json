@@ -1,22 +1,25 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "@nuxt/fonts": "^0.10.2",
-    "nuxt": "^3.14.159",
-    "vue": "latest",
-    "vue-router": "latest"
-  },
-  "devDependencies": {
-    "sass": "^1.80.6",
-    "sass-loader": "^16.0.3"
-  }
+    "name": "nuxt-app",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d .output",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "dependencies": {
+        "@nuxt/fonts": "^0.10.2",
+        "nuxt": "^3.14.159",
+        "vue": "latest",
+        "vue-router": "latest"
+    },
+    "devDependencies": {
+        "gh-pages": "^6.2.0",
+        "sass": "^1.80.6",
+        "sass-loader": "^16.0.3"
+    }
 }
