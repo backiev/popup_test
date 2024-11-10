@@ -6,3 +6,5 @@
 
 Ссылка на попап с новостью:
 http://localhost:3000/popup_test/news/novogodnee-vesele-ot-kompanii-bsk-kak-proshla-yelkabsk-v-2023-godu
+
+Версия ноды: v22.11.0
